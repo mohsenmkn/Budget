@@ -1,0 +1,13 @@
+{
+    "Auth": true,
+    "Task": true,
+    "Financial": true,
+    "HR": true,
+    "Equipment": true,
+    "Contracts": true,
+    "Invoice": true,
+    "User": true,
+    "Acl": true,
+    "Payroll": true,
+    "Attendance": true
+}
