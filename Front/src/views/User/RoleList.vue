@@ -367,7 +367,7 @@ import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
 import { useApiErrorHandler } from '@/composables/useApiErrorHandler';
 import api from '@/api/axios.js';
-import { useAuthStore } from '@/stores/authold.js';
+import { useAuthStore } from '@/stores/auth.js';
 import RoleModal from '@/components/layouts/RoleModal.vue';
 import {
   ShieldCheck,

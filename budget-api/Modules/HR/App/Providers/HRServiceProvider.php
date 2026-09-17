@@ -15,12 +15,6 @@ use Modules\HR\Console\Commands\SyncGtarabarData;
 
 class HRServiceProvider extends ServiceProvider
 {
-    protected $listen = [
-        Login::class => [
-            SyncUserAfterLogin::class,
-        ],
-    ];
-
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../../Database/Migrations');
@@ -31,15 +25,12 @@ class HRServiceProvider extends ServiceProvider
             SyncUserAfterLogin::class
         );
 
-        $configPath = __DIR__ . '/../Config/config.php';
+        $configPath = module_path('HR', 'config/config.php');
         if (file_exists($configPath)) {
             $this->mergeConfigFrom($configPath, 'hr');
         }
 
-        $routesPath = __DIR__ . '/../Routes/api.php';
-        if (file_exists($routesPath)) {
-            $this->loadRoutesFrom($routesPath);
-        }
+        // API routes are registered by the module's RouteServiceProvider.
     }
 
     public function register(): void

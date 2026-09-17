@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Acl\App\Models\Group;
 use Morilog\Jalali\Jalalian;
-use Modules\Document\App\Models\Document;
 use Modules\HR\App\Models\EmployeePosition;
-use Modules\PettyCash\App\Models\PettyCash;
-use Modules\Project\App\Models\Project;
-use Modules\WBS\App\Models\Task;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -108,33 +104,6 @@ class User extends Authenticatable
     | Relations
     |--------------------------------------------------------------------------
     */
-
-    public function managedProjects(): HasMany
-    {
-        return $this->hasMany(Project::class, 'manager_id');
-    }
-
-    public function assignedTasks(): HasMany
-    {
-        return $this->hasMany(Task::class, 'assigned_to');
-    }
-
-    public function taskAssignments(): BelongsToMany
-    {
-        return $this->belongsToMany(Task::class, 'task_assignees')
-            ->withPivot('role')
-            ->withTimestamps();
-    }
-
-    public function pettyCashCustodies(): HasMany
-    {
-        return $this->hasMany(PettyCash::class, 'custodian_id');
-    }
-
-    public function uploadedDocuments(): HasMany
-    {
-        return $this->hasMany(Document::class, 'uploaded_by');
-    }
 
     public function employeePosition(): HasOne
     {
@@ -1382,4 +1351,3 @@ class User extends Authenticatable
 
 
 }
-

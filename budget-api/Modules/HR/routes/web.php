@@ -14,6 +14,4 @@ use Modules\HR\App\Http\Controllers\HRController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('hr', HRController::class)->names('hr');
-});
+// HR is exposed only through the protected API routes.

@@ -535,15 +535,6 @@
 
             </TabPanel>
 
-            <!-- =================================================
-              Assessment Report (کارنامه شایستگی)
-            ================================================= -->
-            <TabPanel header="کارنامه شایستگی">
-              <div class="tab-content-wrapper">
-                <AssessmentReportSection :user-id="employee.user_id" />
-              </div>
-            </TabPanel>
-
           </TabView>
 
         </section>
@@ -605,7 +596,6 @@ import FamilyInfoSection from './FamilyInfoSection.vue'
 import StatuteHistorySection from '@/views/HR/StatuteHistorySection.vue'
 import AttendanceSection from '@/views/HR/AttendanceSection.vue'
 import TrainingSection from '@/views/HR/TrainingSection.vue'
-import AssessmentReportSection from '@/views/HR/AssessmentReportSection.vue'
 
 
 const route = useRoute()

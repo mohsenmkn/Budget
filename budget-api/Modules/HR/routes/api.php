@@ -34,11 +34,6 @@ Route::middleware(['auth:sanctum', 'user.can_login'])->prefix('v1/hr')->name('hr
         ->middleware('permission:hr.view')
         ->name('org-chart.units');
 
-    // GET /api/v1/hr/org-chart/search?q=نام
-    // جستجو در چارت (واحد یا پرسنل)
-    Route::get('/org-chart/search', [OrgChartController::class, 'search'])
-        ->middleware('permission:hr.view')
-        ->name('org-chart.search');
 
     // ── ✅ پرسنل (جدید) ──
     Route::get('/employees', [EmployeeController::class, 'index'])

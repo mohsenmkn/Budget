@@ -363,7 +363,6 @@ class AuthController extends Controller
                         'email' => [
                             'system' => true,
                             'payslip' => true,
-                            'library' => true,
                         ],
                         'push' => [
                             'enabled' => false,

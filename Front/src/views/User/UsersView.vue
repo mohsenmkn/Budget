@@ -681,7 +681,7 @@ import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
 import { useApiErrorHandler } from '@/composables/useApiErrorHandler';
 import api from '@/api/axios.js';
-import { useAuthStore } from '@/stores/authold.js';
+import { useAuthStore } from '@/stores/auth.js';
 const confirm = useConfirm();
 const rows = ref(10);
 const totalRecords = ref(0);

@@ -14,6 +14,4 @@ use Modules\Auth\App\Http\Controllers\AuthController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('auth', AuthController::class)->names('auth');
-});
+// Authentication is exposed only through the API routes.

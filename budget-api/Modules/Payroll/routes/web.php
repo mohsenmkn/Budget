@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Payroll\App\Http\Controllers\PayrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +13,4 @@ use Modules\Payroll\App\Http\Controllers\PayrollController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('payroll', PayrollController::class)->names('payroll');
-});
+// Payslips are exposed only through the protected API routes.

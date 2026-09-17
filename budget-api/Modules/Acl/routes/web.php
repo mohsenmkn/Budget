@@ -14,6 +14,4 @@ use Modules\Acl\App\Http\Controllers\AclController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('acl', AclController::class)->names('acl');
-});
+// Access management is exposed only through the protected API routes.

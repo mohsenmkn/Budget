@@ -361,7 +361,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
-import { useAuthStore } from '@/stores/authold.js';
+import { useAuthStore } from '@/stores/auth.js';
 import api from '@/api/axios.js';
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';

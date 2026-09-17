@@ -1,4 +1,4 @@
-```vue
+
 <template>
 
   <div
@@ -814,4 +814,3 @@ const attendanceIconClass = computed(() => {
 }
 
 </style>
-```

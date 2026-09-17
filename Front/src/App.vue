@@ -5,7 +5,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { useAuthStore } from '@/stores/authold.js'
+import { useAuthStore } from '@/stores/auth.js'
 import { setToastInstance } from '@/plugins/toast'
 import {useToast} from "primevue/usetoast";
 

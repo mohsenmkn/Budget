@@ -37,16 +37,6 @@ Route::prefix('v1/auth')->group(function() {
 
 
 
-        // مدیریت نقش‌ها و دسترسی‌ها
-        Route::get('/roles', [AuthController::class, 'getRoles'])
-            ->middleware('permission:users.read');
-        Route::get('/permissions', [AuthController::class, 'getPermissions'])
-            ->middleware('permission:users.read');
-        Route::get('/users/{user}/access', [AuthController::class, 'getUserAccess'])
-            ->middleware('permission:users.read');
-        Route::put('/users/{user}/permissions', [AuthController::class, 'syncUserPermissions'])
-            ->middleware('permission:users.update');
-        Route::put('/users/{user}/roles', [AuthController::class, 'syncUserRoles'])
-            ->middleware('permission:users.update');
+        // Roles and user access are managed by the Acl and User APIs.
     });
 });

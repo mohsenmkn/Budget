@@ -1,38 +1,26 @@
-# erp-frontend
+# فرانت‌اند سامانه سازمانی
 
-This template should help get you started developing with Vue 3 in Vite.
+رابط Vue 3 برای بک‌اند موجود در پوشه budget-api.
 
-## Recommended IDE Setup
+## راه‌اندازی
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- وابستگی‌ها: npm ci
+- فایل .env را با VITE_API_BASE_URL تنظیم کنید؛ این آدرس باید به /api/v1 ختم شود (مثلاً http://127.0.0.1:8000/api/v1).
+- بدون این متغیر، درخواست‌ها به /api/v1 در دامنه جاری ارسال می‌شوند؛ در محیط توسعه، آدرس بک‌اند را صریحاً تنظیم کنید.
+- اجرا: npm run dev
+- ساخت: npm run build
+- در محیط محدود ویندوز با خطای spawn EPERM: npm run build -- --configLoader native
+- تست مسیرها و دسترسی‌ها: npm test
 
-## Recommended Browser Setup
+## دامنه فعال
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+احراز هویت، پروفایل و تنظیمات، کاربران، نقش‌ها، گروه‌ها، منابع انسانی و فیش حقوقی.
+داشبورد از اطلاعات کاربر و API آخرین تردد استفاده می‌کند. لینک‌های دسترسی سریع و منو از src/config/menu.js تغذیه می‌شوند.
 
-## Customize configuration
+ماژول‌های Library و Attendance در بک‌اند باقی مانده‌اند، اما صفحات مستقل کتابخانه و مدیریت تردد در این نسخه موجود نیستند؛ بنابراین مسیر و منوی آن‌ها فعال نیست. سرویس‌های کتابخانه و نمایش تردد در داشبورد و پرونده پرسنلی حفظ شده‌اند.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+صفحات و سرویس‌های پروژه، قرارداد، انبار، شکایات، ارزیابی شایستگی، دبیرخانه، هزینه تجهیزات و اتصالات دیتابیس حذف شده‌اند. تب ارزیابی پرونده پرسنلی و اعلان‌های وابسته به API داشبورد حذف‌شده نیز برداشته شده‌اند.
 
-## Project Setup
+احراز هویت تنها از src/stores/auth.js و درخواست‌ها از src/api/axios.js استفاده می‌کنند. مجوز مسیرها در meta.permission و منوها در access تعریف می‌شود؛ نام مجوزها باید دقیقاً با بک‌اند مطابقت داشته باشد.
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+تست‌های ناوبری بدون تماس با سرور اجرا می‌شوند. بررسی ورود واقعی، پیامک، دیتابیس سازمانی و دریافت فیش به بک‌اند و حساب آزمایشی نیاز دارد.

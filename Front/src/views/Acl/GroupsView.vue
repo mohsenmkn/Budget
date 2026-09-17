@@ -672,7 +672,7 @@ import { useConfirm } from 'primevue/useconfirm'
 import { useApiErrorHandler } from '@/composables/useApiErrorHandler'
 import { useGroupsApi } from '@/services/groupsService.js'
 import api from '@/api/axios.js'
-import { useAuthStore } from '@/stores/authold.js'
+import { useAuthStore } from '@/stores/auth.js'
 import {
   UsersRound, Search, X, Shield, Lock, UserCheck, Activity, Users,  Briefcase, Building2, Phone, UserPlus  // ← جدید
 } from 'lucide-vue-next'

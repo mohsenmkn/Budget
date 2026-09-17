@@ -48,7 +48,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/authold.js'
+import { useAuthStore } from '@/stores/auth.js'
 import Button from 'primevue/button'
 
 

@@ -14,6 +14,4 @@ use Modules\Attendance\App\Http\Controllers\AttendanceController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('attendance', AttendanceController::class)->names('attendance');
-});
+// Attendance is exposed only through the protected API routes.

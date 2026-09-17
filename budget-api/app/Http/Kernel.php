@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -22,7 +21,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \Illuminate\Http\Middleware\HandleCors::class,
     ];
 
     /**
@@ -69,43 +67,7 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         'user.can_login' => \App\Http\Middleware\EnsureUserCanLogin::class,
-        'workflow.access' => \Modules\VirtualSecretariat\App\Http\Middleware\WorkflowDashboardAccess::class,
     ];
-    protected function schedule(Schedule $schedule): void
-    {
-        // ✅ sync کامل HR هر ۱۵ دقیقه
-        $schedule->command('gtarabar:sync')
-            ->everyFifteenMinutes()
-            ->withoutOverlapping()
-            ->runInBackground()
-            ->onFailure(function (\Throwable $e) {
-                \Log::error("Scheduled gtarabar:sync failed: {$e->getMessage()}");
-            });
-
-        // ✅ گزارش وضعیت روزانه (اختیاری)
-        $schedule->command('gtarabar:status')
-            ->dailyAt('08:00')
-            ->appendOutputTo(storage_path('logs/hr-sync-status.log'));
-
-        // ✅ sync روزانه آموزش پرسنل (افزودی)
-        $schedule->command('training:sync-all --months=6 --delay=100')
-            ->dailyAt('02:00')
-            ->withoutOverlapping()
-            ->runInBackground()
-            ->onFailure(function (\Throwable $e) {
-                \Log::error("Scheduled training sync failed: {$e->getMessage()}");
-            });
-        // Farzin Sync
-        $schedule->command('virtual-secretariat:sync-workflow')
-            ->everyFiveMinutes()
-            ->withoutOverlapping();
-    }
-
-    protected function commands(): void
-    {
-        $this->load(__DIR__ . '/Commands');
-        require base_path('routes/console.php');
-    }
 
 
 

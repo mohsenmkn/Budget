@@ -1,4 +1,4 @@
-```vue
+
 <template>
   <div ref="root" class="user-wrapper">
 
@@ -143,7 +143,7 @@ import {
   ref
 } from 'vue'
 
-import { useAuthStore } from '@/stores/authold.js'
+import { useAuthStore } from '@/stores/auth.js'
 
 const emit = defineEmits([
   'profile',
@@ -785,4 +785,3 @@ onBeforeUnmount(() => {
 }
 
 </style>
-```

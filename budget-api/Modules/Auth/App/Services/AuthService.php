@@ -50,7 +50,7 @@ class AuthService
         }
 
         // تولید کد 5 رقمی
-        $otp = str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
+        $otp = str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
 
         $user->otp_code = $otp;
         $user->otp_expires_at = Carbon::now()->addMinutes(5);
@@ -60,9 +60,7 @@ class AuthService
         $smsSent = $this->sendSmsViaMsgway($mobile, $otp);
 
         if (!$smsSent) {
-            Log::warning("Failed to send SMS to {$mobile}. OTP is: {$otp}");
-            // نکته: در محیط توسعه یا در صورت خطای سرویس پیامک، کد در لاگ ذخیره می‌شود
-            // می‌توانید در صورت نیاز اینجا Exception پرتاب کنید
+            Log::warning('Failed to send OTP SMS.');
         }
 
         return [
@@ -176,7 +174,7 @@ class AuthService
 
             // بررسی کاربر با این personnel_code
             $existingUser = User::where('personnel_code', $gtarabarEmployee->PersonnelCode)->first();
-            $email = trim((string) ($employee->Email ?? ''));
+            $email = trim((string) ($gtarabarEmployee->Email ?? ''));
             $email = $email === '' ? null : $email;
             if ($existingUser) {
                 $existingUser->update([
